@@ -1,4 +1,4 @@
-import { PaymentReceipt, RefundRequest } from '@/types';
+import { PaymentReceipt, RefundRequest } from '@/lib/types';
 import * as crypto from 'crypto';
 
 /**

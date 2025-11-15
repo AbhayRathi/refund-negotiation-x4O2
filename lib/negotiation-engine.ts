@@ -4,7 +4,7 @@ import {
   NegotiationDecision,
   SLA,
   CrawlValue,
-} from '@/types';
+} from '@/lib/types';
 
 /**
  * Intelligent negotiation engine

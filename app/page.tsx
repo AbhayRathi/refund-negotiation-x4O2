@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Transaction, DashboardMetrics } from '@/types';
+import { Transaction, DashboardMetrics } from '@/lib/types';
 
 export default function Dashboard() {
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);

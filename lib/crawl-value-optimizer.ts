@@ -1,4 +1,4 @@
-import { CrawlValue } from '@/types';
+import { CrawlValue } from '@/lib/types';
 
 /**
  * HTML-aware crawl value optimizer

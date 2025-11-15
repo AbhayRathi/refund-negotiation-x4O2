@@ -7,7 +7,7 @@ import {
   DashboardMetrics,
   CrawlRequest,
   SLA,
-} from '@/types';
+} from '@/lib/types';
 
 /**
  * In-memory transaction store
