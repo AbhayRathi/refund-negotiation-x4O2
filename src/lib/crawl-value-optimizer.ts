@@ -59,13 +59,18 @@ export class CrawlValueOptimizer {
 
   /**
    * Calculate content quality score
+   * Note: This function analyzes HTML for value computation only.
+   * The content is never rendered or executed - it's used solely for metrics.
+   * Input comes from crawled web pages and is only parsed for text extraction.
    */
   private static calculateContentQuality(html: string): number {
     let score = 50; // baseline
     
-    // Text content length (remove HTML tags)
-    const textContent = html.replace(/<[^>]*>/g, '');
-    const wordCount = textContent.split(/\s+/).length;
+    // Extract text content by removing HTML tags
+    // This is safe because we only use the result for word counting,
+    // never for display or execution
+    const textContent = this.extractTextFromHtml(html);
+    const wordCount = textContent.split(/\s+/).filter(w => w.length > 0).length;
     
     if (wordCount > 500) score += 20;
     else if (wordCount > 200) score += 10;
@@ -161,5 +166,39 @@ export class CrawlValueOptimizer {
     
     // Round to nearest cent
     return Math.round(priceCents);
+  }
+
+  /**
+   * Extract plain text from HTML content for statistical analysis
+   * 
+   * SECURITY NOTE: This function is NOT a sanitizer and should NOT be used
+   * to sanitize HTML for display or execution. It is used exclusively for
+   * text analysis to compute word counts and content metrics.
+   * 
+   * The extracted text is:
+   * - Never rendered to users
+   * - Never executed as code
+   * - Only used for statistical analysis (word counting)
+   * 
+   * Input: HTML content from web crawls (server-side only)
+   * Output: Plain text for word count calculation
+   * 
+   * This approach is safe because any remaining HTML-like content
+   * is harmless when only used for counting words.
+   */
+  private static extractTextFromHtml(html: string): string {
+    // Simple text extraction for word counting purposes
+    // We don't need perfect HTML parsing, just approximate text content
+    let text = html
+      // Remove script and style blocks (best effort)
+      .replace(/<script[\s\S]*?<\/script[\s]*>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style[\s]*>/gi, ' ')
+      // Remove all other HTML tags
+      .replace(/<[^>]+>/g, ' ')
+      // Normalize whitespace
+      .replace(/\s+/g, ' ')
+      .trim();
+    
+    return text;
   }
 }
