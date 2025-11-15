@@ -1,0 +1,87 @@
+{
+  "threads": {
+    "62dbf79d-693e-4634-a83d-a7906ab33d8b": {
+      "threadId": "62dbf79d-693e-4634-a83d-a7906ab33d8b",
+      "history": [
+        {
+          "from": "buyer",
+          "offer": 2.686848269065512,
+          "message": "Initial offer at WTP: $2.6868 USDC",
+          "timestamp": 1763244870774
+        },
+        {
+          "from": "seller",
+          "offer": 2.686848269065512,
+          "message": "Seller offers $2.6868 USDC with 60% refund",
+          "timestamp": 1763244870834
+        },
+        {
+          "from": "buyer",
+          "accept": 2.686848269065512,
+          "message": "Accepting offer at $2.6868 USDC with 60% refund guarantee",
+          "timestamp": 1763244870835
+        }
+      ],
+      "buyer": "agent_123",
+      "seller": "agent_456",
+      "sla": {
+        "latencyMaxMs": 5000,
+        "qualityMin": 0.8
+      },
+      "createdAt": 1763244870773,
+      "updatedAt": 1763244871617,
+      "wtp_usdc": 2.686848269065512,
+      "ev_usdc": 3.838354670093589,
+      "refundFloor": 0.3,
+      "acceptedPrice": 2.686848269065512,
+      "locked": true,
+      "paymentId": "pay_1763244871103_ebv89c1nt",
+      "receiptId": "rcpt_1763244871104_wnc1tny3a",
+      "serviceResult": {
+        "latencyMs": 2636.0334855918127,
+        "quality": 0.9666584391715545,
+        "data": "Mock crawl data..."
+      },
+      "serviceOk": false
+    }
+  },
+  "transactions": {
+    "e66b65d6-d9e2-46f5-8a3c-439e6df3d1e9": {
+      "id": "e66b65d6-d9e2-46f5-8a3c-439e6df3d1e9",
+      "createdAt": 1763244871104,
+      "from": "agent_123",
+      "to": "agent_456",
+      "amount": 2.686848269065512,
+      "description": "Payment for thread 62dbf79d-693e-4634-a83d-a7906ab33d8b",
+      "status": "confirmed",
+      "receiptId": "rcpt_1763244871104_wnc1tny3a"
+    }
+  },
+  "receipts": {
+    "rcpt_1763244871104_wnc1tny3a": {
+      "json": "{\"amount\":2.686848269065512,\"from\":\"agent_123\",\"paymentId\":\"pay_1763244871103_ebv89c1nt\",\"receiptId\":\"rcpt_1763244871104_wnc1tny3a\",\"threadId\":\"62dbf79d-693e-4634-a83d-a7906ab33d8b\",\"timestamp\":1763244871103,\"to\":\"agent_456\"}",
+      "hash": "e36e6e64516751b7e75f512cf9c2ee1c6f7f5c0d69d29c6ac81a585bdcb70d2b",
+      "data": {
+        "receiptId": "rcpt_1763244871104_wnc1tny3a",
+        "paymentId": "pay_1763244871103_ebv89c1nt",
+        "threadId": "62dbf79d-693e-4634-a83d-a7906ab33d8b",
+        "amount": 2.686848269065512,
+        "from": "agent_123",
+        "to": "agent_456",
+        "timestamp": 1763244871103
+      }
+    },
+    "rcpt_1763244871842_dtxhaz6qf": {
+      "json": "{\"amount\":0.8060544807196536,\"reason\":\"SLA violation\",\"receiptId\":\"rcpt_1763244871842_dtxhaz6qf\",\"refundId\":\"rfnd_1763244871842_1iodhm4bj\",\"threadId\":\"62dbf79d-693e-4634-a83d-a7906ab33d8b\",\"timestamp\":1763244871842}",
+      "hash": "f456a69fad79a89f042bf0cd7dde77862f6ee22ddc7678fd48d575f73afd01ed",
+      "data": {
+        "receiptId": "rcpt_1763244871842_dtxhaz6qf",
+        "refundId": "rfnd_1763244871842_1iodhm4bj",
+        "threadId": "62dbf79d-693e-4634-a83d-a7906ab33d8b",
+        "amount": 0.8060544807196536,
+        "reason": "SLA violation",
+        "timestamp": 1763244871842
+      }
+    }
+  }
+}
